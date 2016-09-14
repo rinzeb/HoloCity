@@ -5,17 +5,24 @@
 # Write a line equal to 'overwrite-all' (without quotes) to overwrite everything (preserved accross builds)
 # Write a line equal to 'keep-all' (without quotes) to keep files regardless their modification (preserved accross builds)
 # Default behavior is to never overwrite files
-HoloCity.sln: modified
-HoloCity\App.cs: CE2F7FC0190422F10DBF14090D08DB92
-HoloCity\HoloCity.csproj: 0965F27BFDE4F12F14082D9B481C9C04
-HoloCity\HoloCity.csproj.user: modified
-HoloCity\Package.appxmanifest: C36DDC493AEA22E1DC61C8ED38EA30D6
-HoloCity\project.json: 1D02BC64BAC0D041019673A1C4C51737
-HoloCity\Assets\SplashScreen.scale-200.png: 60618416282ED104FD1473935716045D
-HoloCity\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
-HoloCity\Assets\Square44x44Logo.scale-200.png: 6C6EF27184ABE9D870A9D564953775DE
-HoloCity\Assets\Square44x44Logo.targetsize-24_altform-unplated.png: 156637F7B5363E983E7A46D8E533A23D
-HoloCity\Assets\StoreLogo.png: 90BD194CA4A7CFFF3E8B8222229857FB
-HoloCity\Assets\Wide310x150Logo.scale-200.png: C96846A80DF667F87355569CD816192D
-HoloCity\Properties\AssemblyInfo.cs: D33982C8A71CC49253F1839609B1A2E8
-HoloCity\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826
+test2.sln: modified
+test2\App.cs: CFA544748AFEF943C868632266F5736D
+test2\Package.appxmanifest: E1C610BDBB4CEE4CA279132F002C8AB9
+test2\project.json: modified
+test2\test2.csproj: 4700F6873C5888E9A74C4A15B0A74EBA
+test2\test2.csproj.user: modified
+test2\Assets\SplashScreen.scale-200.png: 60618416282ED104FD1473935716045D
+test2\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
+test2\Assets\Square44x44Logo.scale-200.png: 6C6EF27184ABE9D870A9D564953775DE
+test2\Assets\Square44x44Logo.targetsize-24_altform-unplated.png: 156637F7B5363E983E7A46D8E533A23D
+test2\Assets\StoreLogo.png: 90BD194CA4A7CFFF3E8B8222229857FB
+test2\Assets\Wide310x150Logo.scale-200.png: C96846A80DF667F87355569CD816192D
+test2\bin\x86\Debug\AppX\Assets\SplashScreen.scale-200.png: 60618416282ED104FD1473935716045D
+test2\bin\x86\Debug\AppX\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
+test2\bin\x86\Debug\AppX\Assets\Square44x44Logo.scale-200.png: 6C6EF27184ABE9D870A9D564953775DE
+test2\bin\x86\Debug\AppX\Assets\Square44x44Logo.targetsize-24_altform-unplated.png: 156637F7B5363E983E7A46D8E533A23D
+test2\bin\x86\Debug\AppX\Assets\StoreLogo.png: 90BD194CA4A7CFFF3E8B8222229857FB
+test2\bin\x86\Debug\AppX\Assets\Wide310x150Logo.scale-200.png: C96846A80DF667F87355569CD816192D
+test2\bin\x86\Debug\AppX\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826
+test2\Properties\AssemblyInfo.cs: 76E0CD4CB1C4BA1A6EA2FB0812036C83
+test2\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826

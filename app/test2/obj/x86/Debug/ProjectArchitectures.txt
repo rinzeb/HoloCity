@@ -1,0 +1,1 @@
+C:\Temp\hololens\test2\test2\app\test2\test2.csproj;x86

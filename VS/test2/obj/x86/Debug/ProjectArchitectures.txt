@@ -1,0 +1,4 @@
+C:\Temp\hololens\test2\test2\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86
+C:\Temp\hololens\test2\test2\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj;x86
+C:\Temp\hololens\test2\test2\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj;x86
+C:\Temp\hololens\test2\test2\vs\test2\test2.csproj;x86
