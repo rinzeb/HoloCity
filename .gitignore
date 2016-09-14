@@ -79,3 +79,15 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+/VS/HoloCity/bin/
+/VS/HoloCity/obj/
+/VS/Players/
+
+/UWP/Assembly-CSharp/bin/
+/UWP/Assembly-CSharp/obj/
+
+/UWP/Assembly-CSharp-firstpass/bin/
+/UWP/Assembly-CSharp-firstpass/obj/
+
+
