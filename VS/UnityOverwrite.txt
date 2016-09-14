@@ -9,7 +9,7 @@ test2.sln: modified
 test2\App.cs: CFA544748AFEF943C868632266F5736D
 test2\Package.appxmanifest: E1C610BDBB4CEE4CA279132F002C8AB9
 test2\project.json: modified
-test2\test2.csproj: 4700F6873C5888E9A74C4A15B0A74EBA
+test2\test2.csproj: modified
 test2\test2.csproj.user: modified
 test2\Assets\SplashScreen.scale-200.png: 60618416282ED104FD1473935716045D
 test2\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
