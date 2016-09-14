@@ -6,7 +6,7 @@
 # Write a line equal to 'keep-all' (without quotes) to keep files regardless their modification (preserved accross builds)
 # Default behavior is to never overwrite files
 test2.sln: modified
-test2\App.cs: CFA544748AFEF943C868632266F5736D
+test2\App.cs: modified
 test2\Package.appxmanifest: E1C610BDBB4CEE4CA279132F002C8AB9
 test2\project.json: modified
 test2\test2.csproj: modified
@@ -24,5 +24,5 @@ test2\bin\x86\Debug\AppX\Assets\Square44x44Logo.targetsize-24_altform-unplated.p
 test2\bin\x86\Debug\AppX\Assets\StoreLogo.png: 90BD194CA4A7CFFF3E8B8222229857FB
 test2\bin\x86\Debug\AppX\Assets\Wide310x150Logo.scale-200.png: C96846A80DF667F87355569CD816192D
 test2\bin\x86\Debug\AppX\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826
-test2\Properties\AssemblyInfo.cs: 76E0CD4CB1C4BA1A6EA2FB0812036C83
+test2\Properties\AssemblyInfo.cs: modified
 test2\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826
