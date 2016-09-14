@@ -1,4 +1,4 @@
-C:\Users\damyl\Documents\HoloCity\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86
-C:\Users\damyl\Documents\HoloCity\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj;x86
-C:\Users\damyl\Documents\HoloCity\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj;x86
-C:\Users\damyl\Documents\HoloCity\VS\test2\test2.csproj;x86
+C:\dev\hololens\projects\HoloCity\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86
+C:\dev\hololens\projects\HoloCity\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj;x86
+C:\dev\hololens\projects\HoloCity\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj;x86
+C:\dev\hololens\projects\HoloCity\VS\test2\test2.csproj;x86
