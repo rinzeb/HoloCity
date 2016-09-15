@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System;
-
+using UnityEngine.Windows.Speech;
 
 public class InitHandler : MonoBehaviour {
 
@@ -19,6 +19,7 @@ public class InitHandler : MonoBehaviour {
         public DoVoiceCommand Action { get; set; }
     }
 
+    private List<VoiceCommand> voiceCommands; 
 
 
     [System.Serializable]
@@ -108,11 +109,6 @@ public class InitHandler : MonoBehaviour {
         return geoJson;
     }
 
-    private void drawGeoJson(GeoJson data)
-    {
-
-
-    }
 
     [SerializeField]
     private Material _meshMaterial;
@@ -186,26 +182,51 @@ public class InitHandler : MonoBehaviour {
 
     void InitVoiceCommands()
     {
+
+        voiceCommands = new List<VoiceCommand>();
+
         var go = gameObject.transform;
         foreach (Transform c in go)
         {
-            var vc = new VoiceCommand();
-            vc.Command = "Hide " + c.name;
-            vc.Action = (VoiceCommand command) =>
+            var vcHide = new VoiceCommand();
+            vcHide.Command = "Hide " + c.name;
+            vcHide.Action = (VoiceCommand command) =>
             {
-
-
+                c.gameObject.SetActive(false);                
             };
-            
+            voiceCommands.Add(vcHide);
+
+            var vcShow = new VoiceCommand();
+            vcShow.Command = "Show " + c.name;
+            vcShow.Action = (VoiceCommand command) =>
+            {
+                c.gameObject.SetActive(true);
+            };
+            voiceCommands.Add(vcShow);
+
         }
         
+        KeywordRecognizer recognizer = new KeywordRecognizer(voiceCommands.Select(k => k.Command).ToArray());
+        recognizer.OnPhraseRecognized += Recognizer_OnPhraseRecognized;
+        recognizer.Start();
+        
+    }
+
+    private void Recognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
+    {
+        foreach (var vc in voiceCommands)
+        {
+            if (vc.Command == args.text)
+            {
+                vc.Action(vc);
+            }
+        }        
     }
 
     void AddBuildings()
     {
         string encodedString = _geojson.text; // "{\"field1\": 0.5,\"field2\": \"sampletext\",\"field3\": [1,2,3]}";
         var geoJson = loadGeoJson(encodedString);
-        drawGeoJson(geoJson);
 
         setText(geoJson.features.Count + " features");
 
