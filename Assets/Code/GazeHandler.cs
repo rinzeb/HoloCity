@@ -40,6 +40,7 @@ public class GazeHandler : MonoBehaviour {
                 return;                
             }
             _hitObject = hitInfo.transform.gameObject;
+            Debug.Log(_hitObject.name);
             var myRenderer = _hitObject.GetComponent<MeshRenderer>();            
         }
         else

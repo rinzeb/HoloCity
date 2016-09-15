@@ -12,7 +12,6 @@ public class InitHandler : MonoBehaviour {
     [SerializeField]
     private Material _buildingMaterial;
 
-
     [SerializeField] private TextAsset _geojson;
     [SerializeField]
     private GameObject _3dText;
