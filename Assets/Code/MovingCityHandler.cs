@@ -23,6 +23,7 @@ public class MovingCityHandler : MonoBehaviour {
 
         GRecognizer.TappedEvent += RecognizerOnDoubleTappedEvent;
         GRecognizer.StartCapturingGestures();
+        gameObject.BroadcastMessage("YeeHaw0019");
 
     }
 
@@ -57,6 +58,8 @@ public class MovingCityHandler : MonoBehaviour {
 
     private void RecognizerOnDoubleTappedEvent(InteractionSourceKind source, int tapCount, Ray headRay)
     {
+        
+        return;
         //var go = GameObject.Find("City");
         //GameObject go = .gameObject;
         //Vector3 oldPos = go.transform.position;

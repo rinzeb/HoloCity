@@ -217,15 +217,12 @@ public class InitHandler : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start()
+    void YeeHaw0019()
     {
         Debug.Log("Hoi");
         AddBuildings();
-        
 
         InitVoiceCommands();
-
-
     }
 
     List<Vector3> parseMultiPolygon(JSONObject coords)
