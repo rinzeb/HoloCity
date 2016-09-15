@@ -14,7 +14,12 @@ public class BuildingHandler : MonoBehaviour {
         
     }
 
-    void Gaze(bool active)
+    public void Tap()
+    {
+        Debug.Log("Building tapped " + gameObject.name);
+    }
+
+    public void Gaze(bool active)
     {
         Active = active;
         _renderer.material.color = (active) ? Color.red : _defaultColor;
@@ -25,3 +30,4 @@ public class BuildingHandler : MonoBehaviour {
 	
 	}
 }
+

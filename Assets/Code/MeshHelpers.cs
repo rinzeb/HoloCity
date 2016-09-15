@@ -74,7 +74,7 @@ public class MeshHelpers  {
         mesh.RecalculateNormals();
         go.GetComponent<MeshRenderer>().material = material;// _settings.GetSettingsFor(kind).Material;
 
-        var collider = (BoxCollider)go.AddComponent(typeof(BoxCollider));
+        var collider = (MeshCollider)go.AddComponent(typeof(MeshCollider));
         var buildingHandler = (BuildingHandler)go.AddComponent(typeof(BuildingHandler));
     }
 
