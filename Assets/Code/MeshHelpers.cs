@@ -62,6 +62,7 @@ public class MeshHelpers  {
         AddMeshToGameObject(go, vertices, indices, material);
         //go.transform.position += Vector3.up * Order;
         go.transform.SetParent(main.transform, false);
+        
         return go;
     }
 
@@ -74,8 +75,6 @@ public class MeshHelpers  {
         mesh.RecalculateNormals();
         go.GetComponent<MeshRenderer>().material = material;// _settings.GetSettingsFor(kind).Material;
 
-        var collider = (MeshCollider)go.AddComponent(typeof(MeshCollider));
-        var buildingHandler = (BuildingHandler)go.AddComponent(typeof(BuildingHandler));
     }
 
 }
