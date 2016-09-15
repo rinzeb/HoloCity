@@ -11,6 +11,14 @@ public class InitHandler : MonoBehaviour {
     [SerializeField]
     private GameObject _3dText;
 
+    public delegate void DoVoiceCommand(VoiceCommand c);
+
+    public class VoiceCommand
+    {
+        public string Command { get; set; }
+        public DoVoiceCommand Action { get; set; }
+    }
+
 
 
     [System.Serializable]
@@ -173,27 +181,28 @@ public class InitHandler : MonoBehaviour {
         //go.transform.position += Vector3.up * Order;
         go.transform.SetParent(main.transform, false);
     }
-    
 
-    //public static Vector2d LatLonToMeters(Vector2d v)
-    //{
-    //    return LatLonToMeters(v.x, v.y);
-    //}
 
-    ////Converts given lat/lon in WGS84 Datum to XY in Spherical Mercator EPSG:900913
-    //public static Vector2 LatLonToMeters(double lat, double lon)
-    //{
-    //    var p = new Vector2d();
-    //    p.x = (lon * OriginShift / 180);
-    //    p.y = (Math.Log(Math.Tan((90 + lat) * Math.PI / 360)) / (Math.PI / 180));
-    //    p.y = (p.y * OriginShift / 180);
-    //    return new Vector2d(p.x, p.y);
-    //}
-    // Use this for initialization
-    void Start()
+
+    void InitVoiceCommands()
     {
-        Debug.Log("Hoi");
+        var go = gameObject.transform;
+        foreach (Transform c in go)
+        {
+            var vc = new VoiceCommand();
+            vc.Command = "Hide " + c.name;
+            vc.Action = (VoiceCommand command) =>
+            {
 
+
+            };
+            
+        }
+        
+    }
+
+    void AddBuildings()
+    {
         string encodedString = _geojson.text; // "{\"field1\": 0.5,\"field2\": \"sampletext\",\"field3\": [1,2,3]}";
         var geoJson = loadGeoJson(encodedString);
         drawGeoJson(geoJson);
@@ -203,29 +212,15 @@ public class InitHandler : MonoBehaviour {
         var main = new GameObject("Buildings");
         main.transform.SetParent(this.gameObject.transform, false);
         var scale = 0.001f;
-        this.gameObject.transform.position = new Vector3(-geoJson.center.x * scale, -0.5f , -geoJson.center.z * scale);
+        this.gameObject.transform.position = new Vector3(-geoJson.center.x * scale, -0.5f, -geoJson.center.z * scale);
         //      main.transform.Rotate(new Vector3(0.9f, 0, 0));
         this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
-        
+
         var i = 0;
         foreach (var f in geoJson.features)
         {
             i += 1;
             List<Vector3> contour = f.geometry.vectors;
-
-            
-            //f.geometry
-
-
-            //List<Vector3> floor = new List<Vector3> {
-            //                                new Vector3(.3f  + (.7f*i), 0, -.3f),
-            //                                new Vector3(-.3f+ (.7f*i),  0, -.3f),
-            //                                new Vector3(-.3f+ (.7f*i),  0,  .3f),
-            //                                new Vector3(.1f+ (.7f*i),  0,  .3f),
-            //                                new Vector3(.1f+ (.7f*i) ,0, .1f),
-            //                                new Vector3(.3f+ (.7f*i), 0, .1f),
-
-            //    };
 
             var verts = new List<Vector3>();
             var indices = new List<int>();
@@ -234,7 +229,19 @@ public class InitHandler : MonoBehaviour {
             CreateGameObject("a" + i, verts, indices, main);
 
         }
-      
+    }
+
+
+    // Use this for initialization
+    void Start()
+    {
+        Debug.Log("Hoi");
+        AddBuildings();
+        
+
+        InitVoiceCommands();
+
+
     }
 
     List<Vector3> parseMultiPolygon(JSONObject coords)
