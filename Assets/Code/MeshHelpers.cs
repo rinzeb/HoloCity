@@ -70,7 +70,7 @@ public class MeshHelpers  {
 
         
 
-        var collider = (BoxCollider)go.AddComponent(typeof(BoxCollider));
+        var collider = (MeshCollider)go.AddComponent(typeof(MeshCollider));
         var buildingHandler = (BuildingHandler)go.AddComponent(typeof(BuildingHandler));
 
 
