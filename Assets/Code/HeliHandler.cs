@@ -22,8 +22,8 @@ public class HeliHandler : MonoBehaviour {
     {
         var body = this.GetComponent<Rigidbody>();
         position.x = Mathf.Sin(Mathf.Deg2Rad * counter);
-        position.z = Mathf.Cos(Mathf.Deg2Rad * counter) + 4.0f;
+        position.z = Mathf.Cos(Mathf.Deg2Rad * counter);
         body.transform.position = position;
-        body.transform.rotation = Quaternion.Euler(0, counter + 90, 0);
+        body.transform.rotation = Quaternion.Euler(0, counter, 0);
     }
 }
