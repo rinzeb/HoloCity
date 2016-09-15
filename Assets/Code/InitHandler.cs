@@ -184,6 +184,7 @@ public class InitHandler : MonoBehaviour {
             MeshHelpers.CreateMesh(contour, height, verts, indices);
             MeshHelpers.CreateGameObject("a" + i, verts, indices, main, _buildingMaterial);
 
+           
         }
     }
 

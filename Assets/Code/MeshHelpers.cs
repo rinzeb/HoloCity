@@ -67,6 +67,12 @@ public class MeshHelpers  {
         go.GetComponent<MeshRenderer>().material = material;// _settings.GetSettingsFor(kind).Material;
         //go.transform.position += Vector3.up * Order;
         go.transform.SetParent(main.transform, false);
+
+        
+
+        var collider = (BoxCollider)go.AddComponent(typeof(BoxCollider));
+
+
     }
 
 
