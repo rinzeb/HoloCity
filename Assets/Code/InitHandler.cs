@@ -7,6 +7,12 @@ using UnityEngine.Windows.Speech;
 
 public class InitHandler : MonoBehaviour {
 
+
+
+    [SerializeField]
+    private Material _buildingMaterial;
+
+
     [SerializeField] private TextAsset _geojson;
     [SerializeField]
     private GameObject _3dText;
@@ -110,10 +116,6 @@ public class InitHandler : MonoBehaviour {
     }
 
 
-    [SerializeField]
-    private Material _meshMaterial;
-
-
     void InitVoiceCommands()
     {
 
@@ -181,7 +183,7 @@ public class InitHandler : MonoBehaviour {
             var indices = new List<int>();
             var height = float.Parse(f.properties["gemiddelde_hoogte"].ToString());
             MeshHelpers.CreateMesh(contour, height, verts, indices);
-            MeshHelpers.CreateGameObject("a" + i, verts, indices, main, _meshMaterial);
+            MeshHelpers.CreateGameObject("a" + i, verts, indices, main, _buildingMaterial);
 
         }
     }
