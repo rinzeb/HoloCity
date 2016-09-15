@@ -421,6 +421,9 @@
     <AppxPackagedFile Include="C:\Users\damyl\Documents\HoloCity\VS\test2\Data\level0.resS">
       <PackagePath>Data\level0.resS</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\damyl\Documents\HoloCity\VS\test2\Data\sharedassets0.assets.resS">
+      <PackagePath>Data\sharedassets0.assets.resS</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\damyl\Documents\HoloCity\VS\test2\Data\managedAssemblies.txt">
       <PackagePath>Data\managedAssemblies.txt</PackagePath>
     </AppxPackagedFile>

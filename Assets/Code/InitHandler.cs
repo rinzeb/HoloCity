@@ -187,7 +187,7 @@ public class InitHandler : MonoBehaviour {
             var indices = new List<int>();
             var height = float.Parse(f.properties["gemiddelde_hoogte"].ToString());
             MeshHelpers.CreateMesh(contour, height, verts, indices);
-            var building = MeshHelpers.CreateGameObject("Building " + i, verts, indices, main, _buildingMaterial);
+            MeshHelpers.CreateGameObject("Building " + i, verts, indices, main, _buildingMaterial);
 
             for (int j = 1; j < contour.Count; j++)
             {

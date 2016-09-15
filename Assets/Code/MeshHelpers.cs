@@ -73,6 +73,9 @@ public class MeshHelpers  {
         mesh.triangles = indices.ToArray();
         mesh.RecalculateNormals();
         go.GetComponent<MeshRenderer>().material = material;// _settings.GetSettingsFor(kind).Material;
+
+        var collider = (BoxCollider)go.AddComponent(typeof(BoxCollider));
+        var buildingHandler = (BuildingHandler)go.AddComponent(typeof(BuildingHandler));
     }
 
 }
