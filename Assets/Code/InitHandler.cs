@@ -203,11 +203,11 @@ public class InitHandler : MonoBehaviour {
         var main = new GameObject("Buildings");
         main.transform.SetParent(this.gameObject.transform, false);
         var scale = 0.001f;
-        main.transform.position = new Vector3(-geoJson.center.x * scale, -0.5f , -geoJson.center.z * scale);
+        this.gameObject.transform.position = new Vector3(-geoJson.center.x * scale, -0.5f , -geoJson.center.z * scale);
         //      main.transform.Rotate(new Vector3(0.9f, 0, 0));
-        main.transform.localScale = new Vector3(scale, scale, scale);
+        this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
         
-            var i = 0;
+        var i = 0;
         foreach (var f in geoJson.features)
         {
             i += 1;
