@@ -3,11 +3,16 @@ using System.Collections;
 using UnityEngine.Windows.Speech;
 using System;
 using UnityEngine.VR.WSA.Input;
+using UnityEngine.VR.WSA.Persistence;
+using UnityEngine.VR.WSA;
 
 public class MovingCityHandler : MonoBehaviour {
+    private WorldAnchorStore _store;
 
 	// Use this for initialization
 	void Start () {
+        WorldAnchorStore.GetAsync(AsyncStoreReady);
+
         KeywordRecognizer KWRecognizer = new KeywordRecognizer(new string[] { "Move here" });
         KWRecognizer.OnPhraseRecognized += onMoveHereRecognized;
         KWRecognizer.Start();
@@ -19,6 +24,35 @@ public class MovingCityHandler : MonoBehaviour {
         GRecognizer.TappedEvent += RecognizerOnDoubleTappedEvent;
         GRecognizer.StartCapturingGestures();
 
+    }
+
+    private void AsyncStoreReady(WorldAnchorStore store)
+    {
+        _store = store;
+    }
+
+    void Place ()
+    {
+        var worldAnchor = GetComponent<WorldAnchor>();
+        if (worldAnchor == null)
+        {
+            CreateAnchor();
+        } else
+        {
+            StoreAnchor(worldAnchor);
+        }
+    }
+
+    private void StoreAnchor(WorldAnchor woldAnchor)
+    {
+        _store.Delete("myID");
+        _store.Save("myID", woldAnchor);
+    }
+
+    private void CreateAnchor()
+    {
+        var wa = gameObject.AddComponent<WorldAnchor>();
+        _store.Save("myID", wa);
     }
 
     private void RecognizerOnDoubleTappedEvent(InteractionSourceKind source, int tapCount, Ray headRay)
@@ -33,8 +67,15 @@ public class MovingCityHandler : MonoBehaviour {
 
         var cameraRay = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         RaycastHit hitInfo;
+        var layerMask = 1 << 31;
 
-        if (Physics.Raycast(cameraRay, out hitInfo, 31))
+        //Physics.Raycast(facePoints[i],
+        //                        raycastDirection,
+        //                        out hitInfo,
+        //                        maximumPlacementDistance,
+        //                        SpatialMappingManager.Instance.LayerMask
+
+        if (Physics.Raycast(cameraRay, out hitInfo, layerMask))
         {
             var _hitObject = hitInfo.transform.gameObject;
 

@@ -11,7 +11,8 @@ public class InitHandler : MonoBehaviour {
 
     [SerializeField]
     private Material _buildingMaterial;
-
+    [SerializeField]
+    private Material _floorMaterial;
 
     [SerializeField] private TextAsset _geojson;
     [SerializeField]
@@ -173,19 +174,43 @@ public class InitHandler : MonoBehaviour {
         //      main.transform.Rotate(new Vector3(0.9f, 0, 0));
         this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
 
+        var min = Vector3.zero;
+        var max = Vector3.zero;
+
+
         var i = 0;
         foreach (var f in geoJson.features)
         {
             i += 1;
             List<Vector3> contour = f.geometry.vectors;
-
             var verts = new List<Vector3>();
             var indices = new List<int>();
             var height = float.Parse(f.properties["gemiddelde_hoogte"].ToString());
             MeshHelpers.CreateMesh(contour, height, verts, indices);
-            MeshHelpers.CreateGameObject("a" + i, verts, indices, main, _buildingMaterial);
+            var building = MeshHelpers.CreateGameObject("Building " + i, verts, indices, main, _buildingMaterial);
 
+            for (int j = 1; j < contour.Count; j++)
+            {
+                if (min.x == 0 || min.x > contour[j].x) { min.x = contour[j].x; }
+                if (min.z == 0 || min.z > contour[j].z) { min.z = contour[j].z; }
+                if (max.x == 0 || max.x < contour[j].x) { max.x = contour[j].x; }
+                if (max.z == 0 || max.z < contour[j].z) { max.z = contour[j].z; }
+            }
         }
+
+        var heightFloor = 0.001f;
+        List<Vector3> points = new List<Vector3>
+        {
+            new Vector3 (max.x, -2*heightFloor, min.z),
+            new Vector3 (min.x, -2*heightFloor, min.z),
+            new Vector3 (min.x, -2*heightFloor, max.z),
+            new Vector3 (max.x, -2*heightFloor, max.z),
+        };
+        var vertsFloor = new List<Vector3>();
+        var indicesFloor = new List<int>();
+
+        MeshHelpers.CreateMesh(points, heightFloor, vertsFloor, indicesFloor);
+        MeshHelpers.CreateGameObject("Ground", vertsFloor, indicesFloor, this.gameObject, _floorMaterial);
     }
 
 

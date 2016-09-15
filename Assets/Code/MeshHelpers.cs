@@ -56,18 +56,23 @@ public class MeshHelpers  {
         }
     }
 
-    public static void CreateGameObject(string name, List<Vector3> vertices, List<int> indices, GameObject main, Material material)
+    public static GameObject CreateGameObject(string name, List<Vector3> vertices, List<int> indices, GameObject main, Material material)
     {
-        var go = new GameObject(name + " Building");
+        var go = new GameObject(name);
+        AddMeshToGameObject(go, vertices, indices, material);
+        //go.transform.position += Vector3.up * Order;
+        go.transform.SetParent(main.transform, false);
+        return go;
+    }
+
+    public static void AddMeshToGameObject(GameObject go, List<Vector3> vertices, List<int> indices, Material material)
+    {
         var mesh = go.AddComponent<MeshFilter>().mesh;
         go.AddComponent<MeshRenderer>();
         mesh.vertices = vertices.ToArray();
         mesh.triangles = indices.ToArray();
         mesh.RecalculateNormals();
         go.GetComponent<MeshRenderer>().material = material;// _settings.GetSettingsFor(kind).Material;
-        //go.transform.position += Vector3.up * Order;
-        go.transform.SetParent(main.transform, false);
     }
-
 
 }
